@@ -1,0 +1,3 @@
+{"type": "response.audio_transcript.delta", "event_id": "event_CvQ7jWsXEz0hCAhoFybxz", "response_id": "resp_CvQ7jvaO61jqncHtc1S6c", "item_id": "item_CvQ7jIvvoz0KrbOnYyURn", "output_index": 0, "content_index": 0, "delta": "Para", "obfuscation": "DMdP21N6cmhe"}
+{"type": "response.audio_transcript.delta", "event_id": "event_CvQ7jO04414RDwLjEBA0A", "response_id": "resp_CvQ7jvaO61jqncHtc1S6c", "item_id": "item_CvQ7jIvvoz0KrbOnYyURn", "output_index": 0, "content_index": 0, "delta": " mejorar", "obfuscation": "c3aHtm7g"}
+{"type": "response.audio_transcript.done", "event_id": "event_CvQ7jnE6wxjLyQj9jwymz", "response_id": "resp_CvQ7jvaO61jqncHtc1S6c", "item_id": "item_CvQ7jIvvoz0KrbOnYyURn", "output_index": 0, "content_index": 0, "transcript": "Para mejorar"}

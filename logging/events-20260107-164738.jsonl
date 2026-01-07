@@ -1,0 +1,3 @@
+{"type": "response.audio_transcript.delta", "event_id": "event_CvQ2zmqgTbvJF38Mqy273", "response_id": "resp_CvQ2zSR9XglP37JyqFNdI", "item_id": "item_CvQ2zcfczXaaCM6vLe5yp", "output_index": 0, "content_index": 0, "delta": "Claro", "obfuscation": "7yNYgvq2eAi"}
+{"type": "response.audio_transcript.delta", "event_id": "event_CvQ2z3384hJgJbxqP07dk", "response_id": "resp_CvQ2zSR9XglP37JyqFNdI", "item_id": "item_CvQ2zcfczXaaCM6vLe5yp", "output_index": 0, "content_index": 0, "delta": ",", "obfuscation": "gYAGMBy6e6IXHmF"}
+{"type": "response.audio_transcript.done", "event_id": "event_CvQ2zinOxVVTjVdiTKSKZ", "response_id": "resp_CvQ2zSR9XglP37JyqFNdI", "item_id": "item_CvQ2zcfczXaaCM6vLe5yp", "output_index": 0, "content_index": 0, "transcript": "Claro,"}
