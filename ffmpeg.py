@@ -1,5 +1,4 @@
 import asyncio
-import shutil
 
 class Ffmpeg:
 
@@ -9,15 +8,19 @@ class Ffmpeg:
 
 
     async def __aenter__(self):
-        """Starts FFmpeg when entering the 'with' block."""
-        if not shutil.which("ffmpeg"):
-            raise RuntimeError("ffmpeg not found in PATH")
 
         cmd = [
             "ffmpeg",
             "-hide_banner", "-loglevel", "error",
-            "-fflags", "nobuffer",
-            "-flags", "low_delay",
+            
+            # --- AGGRESSIVE LATENCY FLAGS ---
+            "-fflags", "nobuffer",       # Don't buffer input
+            "-flags", "low_delay",       # Optimize for low latency
+            "-probesize", "32",          # Don't analyze huge chunks
+            "-analyzeduration", "0",     # Start immediately
+            "-avioflags", "direct",      # Reduce IO buffering
+            # --------------------------------
+            
             "-i", self.url,
             "-f", "s16le",
             "-ac", "1",

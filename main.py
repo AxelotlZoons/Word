@@ -4,12 +4,14 @@ from config import Config
 from ffmpeg import Ffmpeg
 from deepgram import Deepgram
 from spotter import Spotter
+from stream_resolver import get_audio_stream_url
 
 async def main():
 
     spotter = Spotter(Config.KEYWORDS)
     
     def on_message(data):
+        spotter.spot(data)
         # Print transcripts (partial + final)
         if "channel" in data and data["channel"]["alternatives"]:
             transcript = data["channel"]["alternatives"][0].get("transcript", "")
@@ -17,15 +19,18 @@ async def main():
                 prefix = "Final" if data.get("is_final") else "Interim"
                 print(f"[{prefix}] {transcript}")
 
-    print(f"\nStarting stream from: {Config.STREAM_URL}")
+    print(f"\nTarget: {Config.STREAM_URL}")
+    print("Resolving stream...")
     
+    stream_url = get_audio_stream_url(Config.STREAM_URL)
+
     # 1. Start Audio Stream
-    async with Ffmpeg(Config.STREAM_URL) as stream:
+    async with Ffmpeg(stream_url) as stream:
         
         # 2. Start AI Engine
         transcriber = Deepgram(
             api_key=Config.DEEPGRAM_API_KEY,
-            ws_url=Config.DEEPGRAM_URL,
+            websocket_url=Config.DEEPGRAM_URL,
             on_message=on_message
         )
         
